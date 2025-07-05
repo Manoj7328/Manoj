@@ -1,0 +1,31 @@
+def length_converter(value, from_unit, to_unit):
+    # Conversion factors
+    factors = {
+        "mm": 0.001,
+        "cm": 0.01,
+        "m": 1,
+        "km": 1000,
+        "in": 0.0254,
+        "ft": 0.3048,
+        "yd": 0.9144,
+        "mi": 1609.34
+    }
+    
+    # Convert to meters first
+    meters = value * factors[from_unit]
+    
+    # Then convert to the target unit
+    result = meters / factors[to_unit]
+    
+    return result
+
+# Example usage
+value = float(input("Enter the value: "))
+
+from_unit = input("Enter the unit to convert from (e.g., km, mi, ft): ")
+
+to_unit = input("Enter the unit to convert to: ")
+
+result = length_converter(value, from_unit, to_unit)
+
+print(f"{value} {from_unit} is equal to {result:.4f} {to_unit}")
